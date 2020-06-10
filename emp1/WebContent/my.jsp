@@ -8,7 +8,7 @@
         ds = (javax.sql.DataSource) ctx.lookup("java:comp/env/jdbc/db");
       // ds = (javax.sql.DataSource) ctx.lookup("mysqldb");
         Connection con = ds.getConnection();
-        PreparedStatement ps=con.prepareStatement("create Table testwebsphere(name varchar2(23))");
+        PreparedStatement ps=con.prepareStatement("create Table testwebsphere76(name varchar2(23))");
         ps.executeUpdate();
         out.println("table created");
     } catch (NamingException e) {

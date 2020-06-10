@@ -20,34 +20,41 @@
 		<res-auth>Container</res-auth>
 		<res-sharing-scope>Shareable</res-sharing-scope>
 	</resource-ref>
+
+
+	<security-constraint>
+		<!-- authorization start -->
+		<web-resource-collection>
+			<web-resource-name>ABCD</web-resource-name>
+			<url-pattern>/my.jsp</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<!-- authorization end -->
+
+		<!-- integrity start -->
+		<auth-constraint>
+			<role-name>wipro</role-name>
+		</auth-constraint>
+	<!-- integrity end -->
+	<!-- confidentiality start -->
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+		<!-- confidentiality end -->
+	</security-constraint>
+
+<!-- step 1 authentication start  -->
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>defaultWIMFileBasedRealm</realm-name>
+	</login-config>
+
+	<security-role>
+		<role-name>wipro</role-name>
+	</security-role>
 	
- <!-- 
-	 <security-constraint>
-  	<web-resource-collection>
-  		<web-resource-name>ABCD</web-resource-name>
-  		<url-pattern>/my.jsp</url-pattern>
-  		<http-method>GET</http-method>
-  		<http-method>POST</http-method>
-  	</web-resource-collection>
-  	
-  	<auth-constraint>
-  		<role-name>training</role-name>
-  	</auth-constraint>
-  	
-  	<user-data-constraint>
-  		<transport-guarantee>NONE</transport-guarantee>
-  	</user-data-constraint>
-  </security-constraint>
-  
-  
-  <login-config>
-  	<auth-method>BASIC</auth-method>
-  	<realm-name>Realm-0</realm-name>
-  </login-config>
-  
-  <security-role>
-  	<role-name>training</role-name>
-  </security-role>
-   -->
-   
+	<!-- authentication end -->
+
+
 </web-app>
